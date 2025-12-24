@@ -6,43 +6,43 @@ pipeline {
             parallel {
                 stage('User Service') {
                     steps {
-                        build job: 'real-estate-user-service', wait: true
+                        build job: 'user-service', wait: true
                     }
                 }
                 stage('Property Service') {
                     steps {
-                        build job: 'real-estate-property-service', wait: true
+                        build job: 'property-service', wait: true
                     }
                 }
                 stage('Booking Service') {
                     steps {
-                        build job: 'real-estate-booking-service', wait: true
+                        build job: 'booking-service', wait: true
                     }
                 }
                 stage('Payment Service') {
                     steps {
-                        build job: 'real-estate-payment-service', wait: true
+                        build job: 'payment-service', wait: true
                     }
                 }
                 stage('Notification Service') {
                     steps {
-                        build job: 'real-estate-notification-service', wait: true
+                        build job: 'notification-service', wait: true
                     }
                 }
                 stage('Reclamation Service') {
                     steps {
-                        build job: 'real-estate-reclamation-service', wait: true
+                        build job: 'reclamation-service', wait: true
                     }
                 }
                 stage('Blockchain Service') {
                     steps {
-                        build job: 'real-estate-blockchain-service', wait: true
+                        build job: 'blockchain-service', wait: true
                     }
                 }
                 stage('API Gateway') {
                     steps {
                         // Gateway often depends on others, but for Docker build it's independent.
-                        build job: 'real-estate-api-gateway', wait: true
+                        build job: 'API-Gateway', wait: true
                     }
                 }
                 stage('AI Service') {
