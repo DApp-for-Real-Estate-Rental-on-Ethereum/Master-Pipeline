@@ -30,15 +30,10 @@ spec:
       containers:
         - name: frontend
           image: medgm/real-estate-frontend:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:
-             # Important: In a real K8s setup, these would need to be external ingress URLs.
-             # For Minikube NodePort, we might point to localhost if using port-forwarding,
-             # or the minikube IP. Since these are build-time/run-time vars in Next.js,
-             # we'll default them to relative paths or expect a proxy, but here we set them
-             # to the expected NodePort locations accessible from the browser.
             - name: NEXT_PUBLIC_API_BASE_URL
               value: "http://192.168.49.2:30090"
             - name: NEXT_PUBLIC_GATEWAY_URL
